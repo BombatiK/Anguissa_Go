@@ -1,0 +1,99 @@
+<div class="dashboard-wrapper">
+  
+  <!-- En-tête / Navbar -->
+  <header class="navbar">
+    <div class="navbar-brand">
+      <!-- Logo cliquable pour retourner à l'accueil -->
+      <a (click)="navigateToDashboard()" class="logo-link" title="Retour à l'accueil">
+        <img src="assets/images/logo-anguissa-go.png" alt="Anguissa Go Logo" class="nav-logo">
+      </a>
+      <div class="brand-text">
+        <h2>Anguissa Staff</h2>
+        <span class="role-badge">Espace Administration</span>
+      </div>
+    </div>
+
+    <div class="navbar-user" *ngIf="currentUser">
+      <div class="user-info">
+        <span class="user-name">{{ currentUser.fullName || currentUser.username }}</span>
+        <span class="user-role">{{ currentUser.role }}</span>
+      </div>
+      <button (click)="onLogout()" class="btn-logout">
+        <span>Déconnexion</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Contenu Principal -->
+  <main class="dashboard-content">
+    
+    <!-- Bannière de Bienvenue -->
+    <section class="welcome-banner">
+      <div class="welcome-text">
+        <h1>Bonjour, {{ currentUser?.fullName || currentUser?.username }} 👋</h1>
+        <p>Aperçu en temps réel de votre réseau et de la gestion du personnel - {{ currentDate | date:'dd MMMM yyyy' }}</p>
+      </div>
+      <div class="quick-actions">
+        <button class="btn-action primary">+ Créer un Ticket Hotspot</button>
+        <button class="btn-action secondary">Gérer les Employés</button>
+      </div>
+    </section>
+
+    <!-- Grille des Statistiques -->
+    <section class="stats-grid">
+      <div class="stat-card" *ngFor="let stat of stats">
+        <div class="stat-header">
+          <span class="stat-label">{{ stat.label }}</span>
+        </div>
+        <div class="stat-body">
+          <h3 class="stat-value">{{ stat.value }}</h3>
+          <span class="stat-change" [class.positive]="stat.isPositive">
+            {{ stat.change }}
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Activités Récents -->
+    <section class="table-section">
+      <div class="section-header">
+        <h3>Dernières Transactions & Activités Réseau</h3>
+        <button class="btn-link">Voir tout</button>
+      </div>
+
+      <div class="table-card">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Utilisateur / Client</th>
+              <th>Type d'Opération</th>
+              <th>Montant</th>
+              <th>Statut</th>
+              <th>Heure</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of recentActivities">
+              <td class="font-mono">{{ item.id }}</td>
+              <td><strong>{{ item.user }}</strong></td>
+              <td>{{ item.type }}</td>
+              <td>{{ item.amount }}</td>
+              <td>
+                <span class="status-badge" [ngClass]="{
+                  'success': item.status === 'Succès',
+                  'pending': item.status === 'En cours',
+                  'neutral': item.status === 'Terminé'
+                }">
+                  {{ item.status }}
+                </span>
+              </td>
+              <td class="text-muted">{{ item.time }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+</div>
