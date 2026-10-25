@@ -1,0 +1,17 @@
+server.port=8080
+spring.application.name=anguissa-staff-api
+
+# Connexion Oracle 19c (Remplacer localhost, port, XE/ORCL et identifiants)
+spring.datasource.url=jdbc:oracle:thin:@localhost:1521:XE
+spring.datasource.username=${ANGUISSA_ADMIN}
+spring.datasource.password=VotreMotDePasseOracle
+spring.datasource.driver-class-name=oracle.jdbc.OracleDriver
+
+# Configuration JPA / Hibernate
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.OracleDialect
+
+# Clé Secrète JWT (Doit être suffisamment longue et sécurisée)
+jwt.secret=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+jwt.expiration=86400000

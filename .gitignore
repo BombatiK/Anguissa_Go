@@ -1,1 +1,3 @@
 anguissa-staff-api/target/classes/application.properties
+anguissa-staff-api/target/
+anguissa-staff-api/src/main/resources/application.properties
