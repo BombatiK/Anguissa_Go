@@ -44,7 +44,9 @@ public class SecurityConfiguration {
                 .map(u -> User.builder()
                         .username(u.getUsername())
                         .password(u.getPassword())
-                        .roles(u.getRole()) // ADMIN ou EMPLOYEE
+                        .authorities(u.getRoles().stream()
+                                .map(role -> role.getName().name())
+                                .toArray(String[]::new))
                         .build())
                 .orElseThrow(() -> new UsernameNotFoundException("Utilisateur non trouvé : " + username));
     }

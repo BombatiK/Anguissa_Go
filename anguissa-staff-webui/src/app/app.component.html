@@ -7,7 +7,7 @@
 <!-- * * * * * * * to get started with your project! * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
-<style>
+<!-- <style>
   :host {
     --bright-blue: oklch(51.01% 0.274 263.83);
     --electric-violet: oklch(53.18% 0.28 296.97);
@@ -322,76 +322,9 @@
       </div>
     </div>
   </div>
-</main>
+</main> -->
 
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
 
 
 <router-outlet />
-<app-staff-dashboard></app-staff-dashboard>
-<!-- <div class="staff-container">
-  <header class="dashboard-header">
-    <h2>Anguissa_Go - Tableau de Bord Staff</h2>
-    <div class="stats-badges">
-      <span class="badge active">Clients Actifs : 2</span>
-      <span class="badge expired">Clients Expirés : 1</span>
-    </div>
-  </header>
-
-  <!-- Barre de recherche et filtres -->
-  <!-- <div class="controls-bar">
-    <input 
-      type="text" 
-      [(ngModel)]="searchTerm" 
-      placeholder="Rechercher par nom, username ou téléphone..." 
-      class="search-input"
-    /> -->
-    
-    <!-- <select [(ngModel)]="selectedFilter" class="filter-select">
-      <option value="all">Tous les clients</option>
-      <option value="actif">Actifs uniquement</option>
-      <option value="expire">Expirés uniquement</option>
-    </select>
-  </div> -->
-
-  <!-- Table des clients -->
-    <!-- <div class="table-responsive">
-      <table class="staff-table">
-        <thead>
-          <tr>
-            <th>Username</th>
-            <th>Nom Complet</th>
-            <th>Téléphone</th>
-            <th>Offre / Forfait</th>
-            <th>Date d'expiration</th>
-            <th>Statut</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let client of filteredClients">
-            <td><strong>{{ client.username }}</strong></td>
-            <td>{{ client.fullName }}</td>
-            <td>{{ client.phone }}</td>
-            <td>{{ client.plan }}</td>
-            <td>{{ client.expireDate }}</td>
-            <td>
-              <span [ngClass]="{'status-badge active': client.status === 'actif', 'status-badge expired': client.status === 'expiré'}">
-                {{ client.status }}
-              </span>
-            </td>
-            <td class="actions">
-              <button class="btn-renew" (click)="renewClient(client)">Recharger</button>
-              <button class="btn-invoice" (click)="generateInvoice(client)">Facture PDF</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div> --> 
